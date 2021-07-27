@@ -59,7 +59,7 @@ export default function Chats() {
           axios.post(
             'https://api.chatengine.io/users/',
             formdata,
-            { headers: { "private-key": process.env.REACT_APP_CHAT_ENGINE_KEY }}
+            { headers: { "PRIVATE-KEY": process.env.REACT_APP_CHAT_ENGINE_KEY }}
           )
           .then(() => setLoading(false))
           .catch(e => console.log('e', e.response))
@@ -79,7 +79,7 @@ export default function Chats() {
         <div className='logo-tab'>
           Below The Chat
         </div>
-    
+
         <div onClick={handleLogout} className='logout-tab'>
           Logout
         </div>
