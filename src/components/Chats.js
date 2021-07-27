@@ -29,8 +29,7 @@ export default function Chats() {
     if (!didMountRef.current) {
       didMountRef.current = true
 
-      // if (!user || user === null) 
-      if(!user){
+       if (!user || user === null) {
         history.push("/")
         return
       }
@@ -39,6 +38,7 @@ export default function Chats() {
       axios.get(
         'https://api.chatengine.io/users/me/',
         { headers: { 
+          'Content-Type': 'application/x-www-form-urlencoded',
           "project-id": process.env.REACT_APP_CHAT_ENGINE_ID,
           "user-name": user.email,
           "user-secret": user.uid
@@ -60,7 +60,8 @@ export default function Chats() {
           axios.post(
             'https://api.chatengine.io/users/',
             formdata,
-            { headers: { "PRIVATE-KEY": process.env.REACT_APP_CHAT_ENGINE_KEY }}
+            { headers: { "PRIVATE-KEY": process.env.REACT_APP_CHAT_ENGINE_KEY },
+            'Content-Type': 'application/x-www-form-urlencoded'}
           )
           .then(() => setLoading(false))
           .catch(e => console.log('e', e.response))
