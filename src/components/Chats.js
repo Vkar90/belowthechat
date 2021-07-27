@@ -79,7 +79,7 @@ export default function Chats() {
         <div className='logo-tab'>
           Below The Chat
         </div>
-
+    
         <div onClick={handleLogout} className='logout-tab'>
           Logout
         </div>
