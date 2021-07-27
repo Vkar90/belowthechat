@@ -29,7 +29,8 @@ export default function Chats() {
     if (!didMountRef.current) {
       didMountRef.current = true
 
-      if (!user || user === null) {
+      // if (!user || user === null) 
+      if(!user){
         history.push("/")
         return
       }
