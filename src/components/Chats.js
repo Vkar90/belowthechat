@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react"
+
 import axios from 'axios'
 import { useHistory } from "react-router-dom"
 import { ChatEngine } from 'react-chat-engine'
@@ -6,7 +7,6 @@ import { ChatEngine } from 'react-chat-engine'
 import { useAuth } from "../contexts/AuthContext"
 
 import { auth } from "../firebase"
-import { createProxyMiddleware } from "http-proxy-middleware"
 
 export default function Chats() {
   const didMountRef = useRef(false)
@@ -40,9 +40,8 @@ export default function Chats() {
         { headers: { 
           "project-id": process.env.REACT_APP_CHAT_ENGINE_ID,
           "user-name": user.email,
-          "user-secret": user.uid,
-          'Content-Type': 'application/json',
-        }, }
+          "user-secret": user.uid
+        }}
       )
 
       .then(() => setLoading(false))
@@ -60,7 +59,7 @@ export default function Chats() {
           axios.post(
             'https://api.chatengine.io/users/',
             formdata,
-            { headers: { "PRIVATE-KEY": process.env.REACT_APP_CHAT_ENGINE_KEY }, 'Content-Type': 'application/json', proxy: createProxyMiddleware({ target: 'https://www.api.com', changeOrigin: true})}
+            { headers: { "PRIVATE-KEY": process.env.REACT_APP_CHAT_ENGINE_KEY }}
           )
           .then(() => setLoading(false))
           .catch(e => console.log('e', e.response))
