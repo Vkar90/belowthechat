@@ -13,3 +13,5 @@ Firebase and Chat Engine are greats tools to setup apps fast and easily - great 
 ### Bonus - E-mail notifications
 
 If you want to upgrade this chat application even further than what is shown in the video, you can add e-mail notifications. More info on https://chatengine.io/docs/email_notifications.
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9b29f5c7-747c-47f0-b406-fb72b27e0802/deploy-status)](https://app.netlify.com/sites/belowthechat/deploys)
